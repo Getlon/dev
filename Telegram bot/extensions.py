@@ -33,6 +33,6 @@ class Converter:
         except ValueError:
             raise ConverterException(f'Количество валюты должно быть целым или вещественным числом {amount}.')
 
-        r = requests.get(f'https://free.currconv.com/api/v7/convert?q={keys[base]}_{keys[quote]},%20PHP_EU&compact=ultra&apiKey=7bb03ab0640182318fe9')
+        r = requests.get(f'https://free.currconv.com/api/v7/convert?q={keys[base]}_{keys[quote]},%20PHP_EU&compact=ultra&apiKey=someapikey')
         text = json.loads(r.content)
         return text[f'{keys[base]}_{keys[quote]}'] * float(amount)
